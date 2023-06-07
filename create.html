@@ -11,7 +11,7 @@
     <div class="form-container">
         <h1>CREATE EVENT</h1>
     </div>
-    <form class="event-form" action="/submit-event" method="post">
+    <form class="event-form" action="https://script.google.com/macros/s/AKfycbxo4RRGX5vQDpC2IONq4HYGUOW4iSSdJiQftFP5tSDzWFyTU1VsVIjQT5KChdy_zvM/exec" method="post">
         <label for="event-name">Event Name:</label><br>
         <input type="text" id="event-name" name="event-name"><br>
         <label for="event-location">Location:</label><br>
@@ -20,11 +20,9 @@
         <input type="date" id="event-date" name="event-date"><br>
         <label for="organizer-contact">Organizer's email:</label><br>
         <input type="text" id="organizer-contact" name="organizer-contact"><br>
-        <label for="reminder-time">Reminder Time:</label><br>
-        <select id="reminder-time" name="reminder-time">
-          <option value="1-week">1 Week Before</option>
-          <option value="1-day">1 Day Before</option>
-        </select><br><br>
+        <label for="reminder-time">Remind On:</label><br>
+        <input type="date" id="reminder-time" name="reminder-time"><br>
+        <br><br>
         <input type="submit" value="Submit" class="submit-button">
     </form>
 </body>
