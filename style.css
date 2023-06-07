@@ -1,0 +1,100 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    margin-top: 150px;
+}
+
+h1 {
+    color: #2d36de;
+    font-size: 60px;
+}
+
+p {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.create-event-button, .view-events-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-color: black;
+    box-shadow: #000;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.create-event-button:hover, .view-events-button:hover {
+    background-color: #1c24a6;
+}
+.events-container h1{
+    color: #2d36de;
+    text-align: center;
+}
+.form-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form-container h1 {
+    color: #2d36de;
+    font-size: 30px;
+}
+
+.event-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2d36de;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #1c24a6;
+}
