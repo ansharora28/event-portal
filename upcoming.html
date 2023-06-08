@@ -10,7 +10,31 @@
 <body>
     <div class="events-container">
         <h1>Upcoming events</h1>
-        </div>
+        <ul id="upcoming-events"></ul>
     </div>
+
+    <script>
+        // Retrieve events from Local Storage
+        var events = JSON.parse(localStorage.getItem('events')) || [];
+
+        // Get the reference to the ul element to display the events
+        var upcomingEventsList = document.getElementById('upcoming-events');
+
+        // Loop through the events and generate the HTML content
+        for (var i = 0; i < events.length; i++) {
+            var event = events[i];
+
+            // Create the list item and populate it with event details
+            var listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <h3>${event.name}</h3>
+                <p><strong>Location:</strong> ${event.location}</p>
+                <p><strong>Date:</strong> ${event.date}</p>
+            `;
+
+            // Append the list item to the ul element
+            upcomingEventsList.appendChild(listItem);
+        }
+    </script>
 </body>
 </html>

@@ -11,7 +11,8 @@
     <div class="form-container">
         <h1>CREATE EVENT</h1>
     </div>
-    <form class="event-form" action="https://script.google.com/macros/s/AKfycbxQtL8h8qdGiltNF8WdMvE7Fc1e80iYhWgqHgklXqdVDaD0XoQD9JAUXvHpn_sieP9f/exec" method="post">
+    <form class="event-form" action="https://script.google.com/macros/s/AKfycbxwVVutyYNFqhXeRvb_oMa_6WoFz88okbNO--jZ02d74BxawS3AZVwNkeZxnJkb7TkVtQ/exec" method="post">
+         <!-- sheet link https://script.google.com/macros/s/AKfycbxL3mhWqPKfP_vVzjRW8HhxZGuWI_EC_3qO6LPCTMacOBtf6_nMkPLQi4PC2XDns9HI/exec -->
         <label for="event-name">Event Name:</label><br>
         <input type="text" id="event-name" name="event-name"><br>
         <label for="event-location">Location:</label><br>
@@ -20,10 +21,33 @@
         <input type="date" id="event-date" name="event-date"><br>
         <label for="organizer-contact">Organizer's email:</label><br>
         <input type="text" id="organizer-contact" name="organizer-contact"><br>
-        <label for="reminder-time">Remind On:</label><br>
-        <input type="date" id="reminder-time" name="reminder-time"><br>
         <br><br>
         <input type="submit" value="Submit" class="submit-button">
     </form>
+    
+    <script>
+        // Add an event listener to the form submission
+        document.querySelector('.event-form').addEventListener('submit', function(event) {
+            // Get the form values
+            var eventName = document.getElementById('event-name').value;
+            var eventLocation = document.getElementById('event-location').value;
+            var eventDate = document.getElementById('event-date').value;
+            var organizerEmail = document.getElementById('organizer-contact').value;
+    
+            // Create an object with the event details
+            var event = {
+                name: eventName,
+                location: eventLocation,
+                date: eventDate,
+                organizerEmail: organizerEmail
+            };
+    
+            // Store the event in localStorage
+            var events = JSON.parse(localStorage.getItem('events')) || [];
+            events.push(event);
+            localStorage.setItem('events', JSON.stringify(events));
+        });
+    </script>
+    
 </body>
 </html>
