@@ -8,15 +8,14 @@
     <title>SRM Events Portal</title>
 </head>
 <body>
-    
     <div class="form-container">
-            <nav class="top-nav">
-                <button class="home-button"><a href="index.html">Home</a></button>
-            </nav>
+        <nav class="top-nav">
+            <button class="home-button"><a href="index.html">Home</a></button>
+        </nav>
         <h1>CREATE EVENT</h1>
     </div>
     <form class="event-form" action="https://script.google.com/macros/s/AKfycbxwVVutyYNFqhXeRvb_oMa_6WoFz88okbNO--jZ02d74BxawS3AZVwNkeZxnJkb7TkVtQ/exec" method="post">
-         <!-- sheet link https://script.google.com/macros/s/AKfycbxL3mhWqPKfP_vVzjRW8HhxZGuWI_EC_3qO6LPCTMacOBtf6_nMkPLQi4PC2XDns9HI/exec -->
+        <!-- sheet link https://script.google.com/macros/s/AKfycbxL3mhWqPKfP_vVzjRW8HhxZGuWI_EC_3qO6LPCTMacOBtf6_nMkPLQi4PC2XDns9HI/exec -->
         <label for="event-name">Event Name:</label><br>
         <input type="text" id="event-name" name="event-name"><br>
         <label for="event-location">Location:</label><br>
@@ -27,19 +26,21 @@
         <input type="text" id="organizer-contact" name="organizer-contact"><br>
         <br><br>
         <input type="submit" value="Submit" class="submit-button">
-        <button class="upcoming-events-button"><a href="upcoming.html">View Upcoming Events</a></button>
-
+        <button type="button" class="upcoming-events-button"><a href="upcoming.html">View Upcoming Events</a></button>
     </form>
-    
+
     <script>
         // Add an event listener to the form submission
         document.querySelector('.event-form').addEventListener('submit', function(event) {
+            // Prevent the form from being submitted
+            event.preventDefault();
+
             // Get the form values
             var eventName = document.getElementById('event-name').value;
             var eventLocation = document.getElementById('event-location').value;
             var eventDate = document.getElementById('event-date').value;
             var organizerEmail = document.getElementById('organizer-contact').value;
-    
+
             // Create an object with the event details
             var event = {
                 name: eventName,
@@ -47,13 +48,15 @@
                 date: eventDate,
                 organizerEmail: organizerEmail
             };
-    
+
             // Store the event in localStorage
             var events = JSON.parse(localStorage.getItem('events')) || [];
             events.push(event);
             localStorage.setItem('events', JSON.stringify(events));
+
+            // Redirect to the "Upcoming Events" page
+            window.location.href = 'upcoming.html';
         });
     </script>
-    
 </body>
 </html>
