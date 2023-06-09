@@ -9,31 +9,40 @@
 </head>
 <body>
     <div class="events-container">
+            <nav class="top-nav">
+                <button class="home-button"><a href="index.html">Home</a></button>
+                <button class="create-event-button"><a href="create.html">Create Event</a></button>
+            </nav>
         <h1>Upcoming events</h1>
-        <ul id="upcoming-events"></ul>
+        <div id="upcoming-events"></div>
     </div>
 
     <script>
         // Retrieve events from Local Storage
         var events = JSON.parse(localStorage.getItem('events')) || [];
 
-        // Get the reference to the ul element to display the events
-        var upcomingEventsList = document.getElementById('upcoming-events');
+        // Get the reference to the div element to display the events
+        var upcomingEventsContainer = document.getElementById('upcoming-events');
 
         // Loop through the events and generate the HTML content
         for (var i = 0; i < events.length; i++) {
             var event = events[i];
 
-            // Create the list item and populate it with event details
-            var listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <h3>${event.name}</h3>
-                <p><strong>Location:</strong> ${event.location}</p>
-                <p><strong>Date:</strong> ${event.date}</p>
+            // Create the event card and populate it with event details
+            var eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <div class="event-date">
+                    <span class="date-day">${event.date}</span>
+                </div>
+                <div class="event-details">
+                    <h3>${event.name}</h3>
+                    <p><strong>Location:</strong> ${event.location}</p>
+                </div>
             `;
 
-            // Append the list item to the ul element
-            upcomingEventsList.appendChild(listItem);
+            // Append the event card to the container
+            upcomingEventsContainer.appendChild(eventCard);
         }
     </script>
 </body>
